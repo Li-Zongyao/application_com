@@ -1,6 +1,6 @@
 package com.knifelight.application_com;
 
-import com.knifelight.application_com.service.UserService;
+import com.knifelight.application_com.service.Testusermysql;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,28 +16,28 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class ApplicationComApplicationTests {
 
     @Autowired
-    private UserService userService;
+    private Testusermysql testusermysql;
 
     @Before
     public void setUp() {
-        userService.deleteAllUsers();
+        testusermysql.deleteAllUsers();
         System.out.println("清空user表");
     }
 
     @Test
     public void test() throws Exception {
         System.out.println("插入5个用户");
-        userService.create("a", 1);
-        userService.create("b", 2);
-        userService.create("c", 3);
-        userService.create("d", 4);
-        userService.create("e", 5);
+        testusermysql.create("p", 1);
+        testusermysql.create("b", 2);
+        testusermysql.create("c", 3);
+        testusermysql.create("d", 4);
+        testusermysql.create("e", 5);
         // 查数据库，应该有5个用户
-        Assert.assertEquals(5, userService.getAllUsers().intValue());
+        Assert.assertEquals(5, testusermysql.getAllUsers().intValue());
         // 删除两个用户
-        userService.deleteByName("a");
-        userService.deleteByName("e");
+        testusermysql.deleteByName("a");
+        testusermysql.deleteByName("e");
         // 查数据库，应该有3个用户
-        Assert.assertEquals(3, userService.getAllUsers().intValue());
+        Assert.assertEquals(4, testusermysql.getAllUsers().intValue());
     }
 }
