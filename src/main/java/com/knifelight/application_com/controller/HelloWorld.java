@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by sherry on 17/2/20.
  */
 @RestController
-public class helloworld {
+public class HelloWorld {
 
     /**
      * 日志
      */
-    private Logger logger = LoggerFactory.getLogger(helloworld.class);
+    private Logger logger = LoggerFactory.getLogger(HelloWorld.class);
 
     @RequestMapping("/")
     public String index() {

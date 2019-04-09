@@ -22,9 +22,10 @@
         <!--jdbc的数据库连接 -->
         <jdbcConnection
                 driverClass="${db.driverClassName}"
-                connectionURL="${db.url}"
+                connectionURL="jdbc:mysql://localhost:3366/application_mysql?serverTimezone=GMT"
                 userId="${db.username}"
                 password="${db.password}">
+            <!--connectionURL="${db.url}"-->
         </jdbcConnection>
 
         <!-- 非必需，类型处理器，在数据库类型和java类型之间的转换控制-->
@@ -65,7 +66,7 @@
         </javaClientGenerator>
 
         <!-- 配置表格映射 -->
-        <table tableName="student" domainObjectName="Student" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+      <table tableName="app_user" domainObjectName="AppUser" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
 
     </context>
 </generatorConfiguration>
