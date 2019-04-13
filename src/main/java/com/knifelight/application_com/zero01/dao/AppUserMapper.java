@@ -1,6 +1,6 @@
-package org.zero01.dao;
+package com.knifelight.application_com.zero01.dao;
 
-import org.zero01.pojo.AppUser;
+import com.knifelight.application_com.zero01.pojo.AppUser;
 
 public interface AppUserMapper {
     int insert(AppUser record);
