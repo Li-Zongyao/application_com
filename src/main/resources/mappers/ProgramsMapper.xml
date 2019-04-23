@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.knifelight.application_com.zero01.dao.ProgramsMapper" >
+  <resultMap id="BaseResultMap" type="com.knifelight.application_com.zero01.pojo.Programs" >
+    <constructor >
+      <arg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="programname" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="username" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="applicantunit" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="subject" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="apptime" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="status" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.knifelight.application_com.zero01.pojo.Programs" >
+    insert into programs (id, programname, username, 
+      applicantunit, subject, apptime, 
+      status)
+    values (#{id,jdbcType=INTEGER}, #{programname,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{applicantunit,jdbcType=VARCHAR}, #{subject,jdbcType=VARCHAR}, #{apptime,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.knifelight.application_com.zero01.pojo.Programs" >
+    insert into programs
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="programname != null" >
+        programname,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="applicantunit != null" >
+        applicantunit,
+      </if>
+      <if test="subject != null" >
+        subject,
+      </if>
+      <if test="apptime != null" >
+        apptime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="programname != null" >
+        #{programname,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="applicantunit != null" >
+        #{applicantunit,jdbcType=VARCHAR},
+      </if>
+      <if test="subject != null" >
+        #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="apptime != null" >
+        #{apptime,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

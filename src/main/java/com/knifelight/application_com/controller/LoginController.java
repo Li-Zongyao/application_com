@@ -1,16 +1,13 @@
 package com.knifelight.application_com.controller;
 
-
 import com.knifelight.application_com.zero01.pojo.AppUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-
 @Controller
 @RestController
 public class LoginController {
-
 
     private String returnmessage;
 
@@ -29,17 +26,10 @@ public class LoginController {
             returnmessage="wrong password or name";
         } else {
             returnmessage=userRepository.findidentity(user.getName());
-
-//            String[] toBeStored = tempuser.toArray(new String[tempuser.size()]);
-//            for(String s : toBeStored) {
-//                System.out.println(s);
-//            }
         }
-
         System.out.println("identity:"+tempuser);
         System.out.printf("用户名" + user.getName());
         System.out.printf("用户密码" + user.getPassword()+"\n");
-
         return returnmessage;
     }
 

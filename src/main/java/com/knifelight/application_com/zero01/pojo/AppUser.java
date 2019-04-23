@@ -8,15 +8,10 @@ import javax.persistence.Table;
 @Entity//声明一个实体，用的是Java规范下的注解
 @Table(name = "app_user") //映射的表名称
 public class AppUser {
-     /**
-      * 唯一不重复
-       * 声明主键
-       * 声明主键的生成策略
-       */
+     /*声明主键 声明主键的生成策略*/
     @Id
     @GeneratedValue
     private Integer id;
-
 
     private String name;
 
