@@ -46,13 +46,24 @@ public class ProgramsController {
     @ResponseBody
     public Map<String,Object> getprogram(@RequestBody Programs program) {
         Map<String,Object> returnMap=new HashMap<String,Object>();
-        System.out.println("开始查询在线视频资源");
         List<Programs> list = null;
-        list = programsrepository.findAll();
-        System.out.println("结束查询在线视频资源" + list );
-        String str2 = new String("return programs success");
-        returnMap.put("aaa", str2 );
-        returnMap.put("program", list);
+        if (program.getProgramname().isEmpty()) {
+            System.out.println("显示所有项目");
+            list = programsrepository.findAll();
+            System.out.println("显示所有项目结束");
+            String str2 = new String("return all programs success");
+            returnMap.put("aaa", str2);
+            returnMap.put("program", list);
+        }else {
+            System.out.println("显示查询项目");
+            String getProgramname = program.getProgramname();
+            System.out.println("查询Programname： "+ getProgramname);
+            list = programsrepository.findByprogramname( getProgramname );
+            String str2 = new String("return select programs success");
+            returnMap.put("aaa", str2);
+            returnMap.put("program", list);
+            System.out.println("显示查询项目结束");
+        }
         return returnMap;
     }
 
